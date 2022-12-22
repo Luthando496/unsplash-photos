@@ -38,12 +38,13 @@ function App() {
       setPhotos((oldPhotos) => {
         if (query && page === 1) {
           return data.results;
-        } else if (query) {
+        } else if (query && page + 1) {
           return [...oldPhotos, ...data.results];
         } else {
           return [...oldPhotos, ...data];
         }
       });
+      console.log(data);
       setNewImages(false);
       setLoading(false);
     } catch (error) {
